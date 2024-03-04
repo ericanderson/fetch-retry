@@ -1,10 +1,13 @@
 env:
   browser: true
-  commonjs: true
-  es6: false
-extends: 'eslint:recommended'
+  es2020: true
+#   # commonjs: true
+#   # es6: true
+#   node: true
+extends: "eslint:recommended"
 parserOptions:
-  ecmaVersion: 5
+  ecmaVersion: latest
+  sourceType: module
 rules:
   indent:
     - warn
@@ -14,7 +17,7 @@ rules:
     - unix
   quotes:
     - warn
-    - single
+    - double
   semi:
     - warn
     - always

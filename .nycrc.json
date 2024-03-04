@@ -1,7 +1,5 @@
 {
-  "include": [
-    "**/*.js"
-  ],
+  "include": ["**/*.js"],
   "exclude": [
     "coverage/**",
     "test/**",
@@ -11,10 +9,7 @@
     "**/node_modules/**",
     "**/*.spec.js"
   ],
-  "reporter": [
-    "lcov",
-    "text"
-  ],
+  "reporter": ["lcov", "text"],
   "check-coverage": true,
   "per-file": false,
   "statements": 100,

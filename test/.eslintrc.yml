@@ -2,6 +2,10 @@ env:
   node: true
   mocha: true
 parserOptions:
-  ecmaVersion: 10
+  ecmaVersion: latest
+  sourceType: module
 rules:
   no-console: 0
+  quotes:
+    - off
+    - single

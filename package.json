@@ -3,14 +3,25 @@
   "version": "5.0.6",
   "description": "Extend any fetch library with retry functionality",
   "repository": "https://github.com/jonbern/fetch-retry.git",
-  "main": "index.js",
-  "browser": "dist/fetch-retry.umd.js",
+  "exports": {
+    "import": {
+      "types": "./dist/mjs/index.d.mts",
+      "default": "./dist/mjs/index.mjs"
+    },
+    "require": {
+      "types": "./dist/cjs/index.d.ts",
+      "default": "./dist/cjs/index.js"
+    },
+    "default": "./index.js"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.mjs",
   "types": "index.d.ts",
   "scripts": {
     "lint": "eslint index.js ./test/**/*.js",
     "test": "nyc mocha test/**/**.js && npm run lint",
     "integration-test": "mocha test/integration/",
-    "build": "rollup -c",
+    "build": "rollup -c && tsc -p jsconfig.json && tsc -p jsconfig-cjs.json",
     "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\""
   },
   "keywords": [
@@ -25,17 +36,17 @@
   "dependencies": {},
   "devDependencies": {
     "body-parser": "^1.19.0",
-    "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
-    "eslint": "^6.8.0",
-    "expectations": "^0.7.1",
+    "eslint": "^8.57.0",
     "express": "^4.17.1",
     "husky": "^7.0.0",
-    "mocha": "^10.2.0",
-    "node-fetch": "^2.6.9",
-    "nyc": "^14.1.1",
-    "rollup": "^2.52.3",
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "sinon": "^6.3.5"
+    "rollup": "^4.12.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "sinon": "^6.3.5",
+    "tiny-invariant": "^1.3.3",
+    "typescript": "^5.3.3",
+    "babel-plugin-dev-expression": "^0.2.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@babel/preset-env": "7.24.0",
+    "vitest": "^1.3.1"
   }
 }
